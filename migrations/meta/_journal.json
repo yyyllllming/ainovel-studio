@@ -1,0 +1,146 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1743600000000,
+      "tag": "0000_baseline",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1775193422068,
+      "tag": "0001_romantic_moonstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1775231182962,
+      "tag": "0002_smiling_glorian",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1775318400000,
+      "tag": "0003_run_statistics",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1775433600000,
+      "tag": "0004_foundation_workshop_sessions",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1775606400000,
+      "tag": "0005_foundation_core_fields",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1775692800000,
+      "tag": "0006_chapter_plan_backbone",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1775779200000,
+      "tag": "0007_review_categories_and_plan_stats",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1775865600000,
+      "tag": "0008_author_book_imports",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1775952000000,
+      "tag": "0009_hook_guidance",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1776038400000,
+      "tag": "0010_hook_plans_slot_index",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1776124800000,
+      "tag": "0011_foundation_suggestions",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1776211200000,
+      "tag": "0012_chapter_plans_hook_slots",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1776297600000,
+      "tag": "0013_performance_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1776384000000,
+      "tag": "0014_idea_message_index_and_hook_plans_cleanup",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "6",
+      "when": 1783753265774,
+      "tag": "0015_author_submissions",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "6",
+      "when": 1783821323016,
+      "tag": "0016_review_window_content_hash",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1783882491280,
+      "tag": "0017_amazing_wither",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1783883240783,
+      "tag": "0018_sharp_xorn",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "6",
+      "when": 1783884086910,
+      "tag": "0019_flimsy_sumo",
+      "breakpoints": true
+    }
+  ]
+}

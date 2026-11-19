@@ -1,0 +1,2 @@
+ALTER TABLE `timeline_mutation_effects` ADD `mutation_identity` text NOT NULL;--> statement-breakpoint
+CREATE INDEX `idx_timeline_mutation_effects_identity` ON `timeline_mutation_effects` (`project_id`,`chapter_no`,`mutation_identity`);

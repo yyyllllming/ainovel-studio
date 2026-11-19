@@ -1,0 +1,1054 @@
+@import "tailwindcss";
+
+/* ============================================================
+   taffy 甜系主题令牌
+   双主题：奶昔 milk（亮，默认） / 夜猫 night（暗）
+   主色取自塔菲的粉发与"粉色王牌"，辅以四叶草绿🍀与长春花蓝。
+   语义令牌沿用旧名（--ink 系 = 文字、--accent = 主操作），
+   组件层不用感知本次换肤。
+   ============================================================ */
+
+:root,
+[data-theme="milk"] {
+  color-scheme: light;
+
+  --surface: #fff4f8;
+  --surface-deep: #ffe9f1;
+  --sidebar: rgba(255, 249, 252, 0.5);
+  /* 冰感亚克力：填充更透（边框立骨架，内里透到背景色），blur 保住可读性 */
+  --panel: rgba(255, 253, 255, 0.45);
+  --panel-solid: #fffdfe;
+  --panel-muted: rgba(255, 240, 248, 0.42);
+  --panel-soft: rgba(240, 97, 154, 0.05);
+  --field: rgba(255, 235, 243, 0.42);
+  --glass-edge: rgba(255, 255, 255, 0.85);
+  /* 冰面反光：左上角一道斜向白霜，向右下消融 */
+  --glass-sheen: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.12) 34%,
+    rgba(255, 255, 255, 0) 62%
+  );
+
+  --ink: #4b3a45;
+  --ink-soft: #7d6674;
+  --ink-faint: #ab92a0;
+
+  --accent: #d6336c;
+  --accent-hover: #c02563;
+  --accent-soft: rgba(240, 97, 154, 0.13);
+  --accent-ink: #ffffff;
+  --accent-glow: rgba(240, 97, 154, 0.35);
+  --candy-a: #f2699f;
+  --candy-b: #e0407f;
+  --candy-c: #8b7fe8;
+
+  /* 马卡龙五色：卡片撞色、彩虹标题、粒子特效共用 */
+  --tint-pink: #e8558e;
+  --tint-violet: #8b7fe8;
+  --tint-sky: #46a8e0;
+  --tint-mint: #2fae7d;
+  --tint-peach: #ef8a3d;
+  --tint-gold: #e8b423;
+
+  --azure: #6a6fc9;
+
+  --line: #f6d9e5;
+  --line-strong: #eebcd2;
+  --hover: rgba(240, 97, 154, 0.07);
+
+  --success: #2e9d64;
+  --warn: #c07a1f;
+  --danger: #d64550;
+
+  --wash-a: rgba(255, 143, 184, 0.30);
+  --wash-b: rgba(216, 207, 255, 0.36);
+  --wash-c: rgba(194, 242, 220, 0.30);
+  --wash-d: rgba(160, 212, 250, 0.22);
+  --blob-a: #ffc6dc;
+  --blob-b: #d8cfff;
+  --blob-c: #c2f2dc;
+  --blob-d: #c4e4ff;
+  --blob-opacity: 0.7;
+  --shadow-panel: 0 10px 30px rgba(240, 97, 154, 0.12);
+  --shadow-soft: 0 5px 16px rgba(240, 97, 154, 0.10);
+
+  /* 阅读面：全屏阅读模式的纸面 */
+  --reading-paper: #fffaf5;
+  --reading-ink: #4a3a40;
+  --reading-ink-soft: #85707c;
+
+  --status-idle-bg: rgba(75, 58, 69, 0.07);
+  --status-idle-fg: #7d6674;
+  --status-blueprint-bg: rgba(106, 111, 201, 0.12);
+  --status-blueprint-fg: #5a5fbe;
+  --status-writing-bg: rgba(46, 157, 100, 0.12);
+  --status-writing-fg: #237a4d;
+  --status-review-bg: rgba(240, 97, 154, 0.12);
+  --status-review-fg: #d6336c;
+  --status-alert-bg: rgba(214, 69, 80, 0.11);
+  --status-alert-fg: #c73540;
+  --status-done-bg: rgba(196, 146, 27, 0.14);
+  --status-done-fg: #96700f;
+  --status-warn-bg: rgba(192, 122, 31, 0.12);
+  --status-warn-fg: #a3670f;
+}
+
+[data-theme="night"] {
+  color-scheme: dark;
+
+  --surface: #241a2f;
+  --surface-deep: #1c1426;
+  --sidebar: rgba(26, 18, 36, 0.5);
+  --panel: rgba(52, 40, 74, 0.42);
+  --panel-solid: #2f2340;
+  --panel-muted: rgba(46, 34, 62, 0.38);
+  --panel-soft: rgba(255, 143, 184, 0.05);
+  --field: rgba(26, 18, 38, 0.5);
+  --glass-edge: rgba(255, 255, 255, 0.09);
+  --glass-sheen: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.03) 34%,
+    rgba(255, 255, 255, 0) 62%
+  );
+
+  --ink: #f4e6ee;
+  --ink-soft: #c3a5b7;
+  --ink-faint: #8d7390;
+
+  --accent: #ff87b4;
+  --accent-hover: #ff9dc2;
+  --accent-soft: rgba(255, 135, 180, 0.16);
+  --accent-ink: #43112b;
+  --accent-glow: rgba(255, 135, 180, 0.30);
+  --candy-a: #ff9dc2;
+  --candy-b: #ff7bab;
+  --candy-c: #b3a8ff;
+
+  --tint-pink: #ff9dc2;
+  --tint-violet: #b3a8ff;
+  --tint-sky: #8fd0f5;
+  --tint-mint: #7ee0b0;
+  --tint-peach: #ffbe8a;
+  --tint-gold: #f2c84a;
+
+  --azure: #a9aef5;
+
+  --line: rgba(255, 190, 216, 0.13);
+  --line-strong: rgba(255, 190, 216, 0.26);
+  --hover: rgba(255, 190, 216, 0.07);
+
+  --success: #7ed9a7;
+  --warn: #ffc27d;
+  --danger: #ff8f96;
+
+  --wash-a: rgba(255, 123, 171, 0.16);
+  --wash-b: rgba(137, 121, 233, 0.20);
+  --wash-c: rgba(126, 217, 167, 0.11);
+  --wash-d: rgba(96, 150, 214, 0.14);
+  --blob-a: #b8578a;
+  --blob-b: #6f5fc9;
+  --blob-c: #3f8f6a;
+  --blob-d: #3c6fae;
+  --blob-opacity: 0.38;
+  --shadow-panel: 0 12px 30px rgba(12, 6, 20, 0.45);
+  --shadow-soft: 0 6px 18px rgba(12, 6, 20, 0.35);
+
+  --reading-paper: #2b2138;
+  --reading-ink: #e8dae4;
+  --reading-ink-soft: #ad93a5;
+
+  --status-idle-bg: rgba(244, 230, 238, 0.08);
+  --status-idle-fg: #d9c3d1;
+  --status-blueprint-bg: rgba(169, 174, 245, 0.14);
+  --status-blueprint-fg: #b9befa;
+  --status-writing-bg: rgba(126, 217, 167, 0.13);
+  --status-writing-fg: #93e2b6;
+  --status-review-bg: rgba(255, 135, 180, 0.14);
+  --status-review-fg: #ff9dc2;
+  --status-alert-bg: rgba(255, 143, 150, 0.15);
+  --status-alert-fg: #ffa7ad;
+  --status-done-bg: rgba(255, 214, 120, 0.14);
+  --status-done-fg: #ffd678;
+  --status-warn-bg: rgba(255, 194, 125, 0.13);
+  --status-warn-fg: #ffc27d;
+}
+
+@theme inline {
+  --color-background: var(--surface);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(1000px 640px at 86% -6%, var(--wash-b), transparent 60%),
+    radial-gradient(880px 600px at -8% 12%, var(--wash-a), transparent 58%),
+    radial-gradient(920px 640px at 50% 112%, var(--wash-c), transparent 62%),
+    radial-gradient(760px 560px at 8% 88%, var(--wash-d), transparent 60%),
+    linear-gradient(180deg, var(--surface) 0%, var(--surface-deep) 100%);
+  background-attachment: fixed;
+}
+
+/* 糖果云 + 小星星：全屏漂浮的柔光色斑与错峰闪烁的星星。
+   色斑分两层：.blob-wrap 由 GSAP 做滚动视差（只动外层），
+   .blob 自己跑 CSS 漂浮动画，两套 transform 互不打架。 */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-decor .blob-wrap {
+  position: absolute;
+  will-change: transform;
+}
+
+.bg-decor .blob {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: var(--blob-opacity);
+  animation: blob-drift 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.bg-decor .blob-wrap:nth-of-type(1) {
+  width: 42vw;
+  height: 42vw;
+  left: -12vw;
+  top: -14vw;
+}
+
+.bg-decor .blob-wrap:nth-of-type(1) .blob {
+  background: var(--blob-a);
+}
+
+.bg-decor .blob-wrap:nth-of-type(2) {
+  width: 36vw;
+  height: 36vw;
+  right: -10vw;
+  top: 8vh;
+}
+
+.bg-decor .blob-wrap:nth-of-type(2) .blob {
+  background: var(--blob-b);
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+.bg-decor .blob-wrap:nth-of-type(3) {
+  width: 38vw;
+  height: 38vw;
+  left: 30vw;
+  bottom: -18vw;
+}
+
+.bg-decor .blob-wrap:nth-of-type(3) .blob {
+  background: var(--blob-c);
+  animation-duration: 27s;
+}
+
+.bg-decor .blob-wrap:nth-of-type(4) {
+  width: 26vw;
+  height: 26vw;
+  right: 14vw;
+  bottom: -6vw;
+}
+
+.bg-decor .blob-wrap:nth-of-type(4) .blob {
+  background: var(--blob-d);
+  animation-duration: 34s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes blob-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(4vw, 3vh, 0) scale(1.12); }
+}
+
+.bg-decor .sparkle {
+  position: absolute;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.4);
+  animation: sparkle-twinkle 5.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+[data-theme="night"] .bg-decor .sparkle {
+  text-shadow: 0 0 14px currentColor;
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  40% { opacity: 0.85; transform: scale(1.08) rotate(22deg); }
+  60% { opacity: 0.68; transform: scale(0.94) rotate(30deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-decor .blob,
+  .bg-decor .sparkle {
+    animation: none;
+  }
+
+  .bg-decor .sparkle {
+    opacity: 0.3;
+    transform: none;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea,
+select {
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease,
+    color 160ms ease;
+}
+
+/* 主题切换瞬间禁用颜色过渡（无 View Transition 时的回退路径） */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
+/* 主题切换的圆形扩散：动画由 theme-provider 用 WAAPI 驱动 clip-path，
+   这里关掉浏览器默认的交叉淡化，避免两套动画叠加。 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--azure);
+  outline-offset: 2px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--azure) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--azure) 14%, transparent);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+/* .card/.workspace-panel/.card-strong 是兼容旧类名的别名选择器：
+   Tailwind 4 的 @apply 只接受真正的 utility，不能引用普通 CSS 类，
+   所以这里直接让新旧选择器共享同一组规则。 */
+.ainovel-card,
+.ainovel-workspace-panel,
+.ainovel-card-strong,
+.card,
+.workspace-panel,
+.card-strong {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--glass-sheen), var(--panel);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow: var(--shadow-panel), inset 0 1px 0 var(--glass-edge);
+  border-radius: 20px;
+}
+
+/* 不支持 backdrop-filter 的环境退回实心面板，保证可读 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .ainovel-card,
+  .ainovel-workspace-panel,
+  .ainovel-card-strong,
+  .card,
+  .workspace-panel,
+  .card-strong,
+  .scroll-container,
+  .workspace-sidebar,
+  .acrylic {
+    background: var(--panel-solid);
+  }
+}
+
+.ainovel-card::before,
+.ainovel-workspace-panel::before,
+.ainovel-card-strong::before,
+.card::before,
+.workspace-panel::before,
+.card-strong::before {
+  content: none;
+}
+
+.ainovel-card::after,
+.ainovel-workspace-panel::after,
+.ainovel-card-strong::after,
+.card::after,
+.workspace-panel::after,
+.card-strong::after {
+  content: none;
+}
+
+.ainovel-workspace-panel > *,
+.ainovel-card > *,
+.ainovel-card-strong > *,
+.workspace-panel > *,
+.card > *,
+.card-strong > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: var(--sidebar);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  box-shadow: inset 0 1px 0 var(--glass-edge);
+}
+
+.app-main {
+  min-width: 0;
+}
+
+/* logo 塔菲头像：小唐人笑循环动图，闲时轻轻弹 */
+.taffy-chip {
+  box-shadow: 0 6px 16px var(--accent-glow);
+  background: #5aa0e8;
+}
+
+.taffy-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 72%;
+  transform-origin: 50% 70%;
+  animation: taffy-bob 2.8s ease-in-out infinite;
+}
+
+.logo-link:hover .taffy-mark {
+  animation: taffy-ahoge-wiggle 0.5s ease-in-out;
+}
+
+@keyframes taffy-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg) scale(1.35); }
+  50% { transform: translateY(-3px) rotate(2deg) scale(1.35); }
+}
+
+@keyframes taffy-ahoge-wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1.38); }
+  30% { transform: rotate(-8deg) scale(1.38); }
+  65% { transform: rotate(7deg) scale(1.38); }
+}
+
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-item:hover {
+  background: var(--hover);
+  color: var(--ink);
+  transform: translateY(-1.5px) scale(1.04);
+}
+
+/* 激活项 = 糖果胶囊，和主按钮同一套渐变 */
+.nav-item.active {
+  border-color: transparent;
+  background: linear-gradient(120deg, var(--candy-a), var(--candy-b));
+  color: var(--accent-ink);
+  font-weight: 700;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.nav-item.active:hover {
+  background: linear-gradient(120deg, var(--candy-a), var(--candy-b));
+  color: var(--accent-ink);
+  filter: brightness(1.05);
+}
+
+.nav-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  margin: 0;
+}
+
+.workspace-sidebar {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--glass-sheen), var(--panel);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow: inset 0 1px 0 var(--glass-edge);
+  padding: 14px;
+}
+
+.workspace-item {
+  border-radius: 14px;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+  cursor: pointer;
+}
+
+.workspace-item:hover {
+  background: var(--hover);
+}
+
+.workspace-item.active {
+  border: 1px solid var(--line);
+  background: var(--panel-muted);
+  box-shadow: var(--shadow-soft);
+}
+
+.workspace-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-muted);
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* 主操作：三色糖果流动渐变 + 掠光 + 果冻弹性，按下去会"duang" */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, var(--candy-a), var(--candy-b) 45%, var(--candy-c));
+  background-size: 230% 100%;
+  background-position: 0% 50%;
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px var(--accent-glow);
+  transition:
+    box-shadow 200ms ease,
+    filter 200ms ease,
+    opacity 160ms ease,
+    background-position 460ms ease,
+    transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05) saturate(1.05);
+  box-shadow: 0 9px 24px var(--accent-glow);
+  background-position: 95% 50%;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* 掠光：悬停时一道高光从左扫到右 */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -70%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  animation: btn-shine 0.7s ease;
+}
+
+@keyframes btn-shine {
+  from { left: -70%; opacity: 1; }
+  to { left: 135%; opacity: 0; }
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-ghost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 200ms ease,
+    opacity 160ms ease,
+    color 160ms ease,
+    transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-secondary:hover {
+  background: var(--panel-muted);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  transform: translateY(-1.5px) scale(1.02);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.btn-ghost {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-ghost:hover {
+  background: var(--hover);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--field);
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.form-input::placeholder {
+  color: var(--ink-faint);
+}
+
+.form-input:focus {
+  border-color: color-mix(in srgb, var(--azure) 55%, transparent);
+  background: var(--field);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--azure) 14%, transparent);
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.page-content {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 32px 28px 40px;
+}
+
+/* 贴纸卡：虚线描边的手账风容器（项目卡），同样是亚克力底 */
+.scroll-container {
+  position: relative;
+  overflow: hidden;
+  border: 2px dashed color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 20px;
+  background: var(--glass-sheen), var(--panel);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* 徽章贴纸：粉色描边小标签（沿用旧印章类名） */
+.seal,
+.seal-h {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.seal {
+  padding: 6px 4px;
+  border-radius: 10px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.seal-h {
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* ── 马卡龙撞色系统：卡片按序轮换 data-tone，站内五色循环 ── */
+
+[data-tone="pink"] { --tone: var(--tint-pink); }
+[data-tone="violet"] { --tone: var(--tint-violet); }
+[data-tone="sky"] { --tone: var(--tint-sky); }
+[data-tone="mint"] { --tone: var(--tint-mint); }
+[data-tone="peach"] { --tone: var(--tint-peach); }
+
+/* 撞色卡：顶部色带 + 同色描边，悬停亮起同色光晕
+   默认色用 :where() 降到零特异性，保证 [data-tone] 映射能赢 */
+:where(.tone-card) {
+  --tone: var(--accent);
+}
+
+.tone-card {
+  border-color: color-mix(in srgb, var(--tone) 36%, transparent);
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 300ms ease;
+}
+
+.tone-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--tone), color-mix(in srgb, var(--tone) 12%, transparent));
+  opacity: 0.9;
+}
+
+.tone-card:hover {
+  border-color: color-mix(in srgb, var(--tone) 72%, transparent);
+  box-shadow: 0 16px 38px color-mix(in srgb, var(--tone) 26%, transparent);
+}
+
+/* 彩虹顶带：大面板头顶一条五色渐变 */
+.candy-top::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--tint-pink),
+    var(--tint-violet),
+    var(--tint-sky),
+    var(--tint-mint),
+    var(--tint-peach)
+  );
+  opacity: 0.8;
+}
+
+/* 流动渐变字：糖果三色缓缓来回淌 */
+.gradient-text {
+  background: linear-gradient(92deg, var(--candy-a), var(--candy-c) 55%, var(--candy-b));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-slide 6s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-slide {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* 彩虹标题字：BouncyTitle 拆出的单字，五色轮转
+   （竖向渐变逐字独立，横向看仍是连续的） */
+.bouncy-char {
+  --bc: var(--tint-pink);
+  display: inline-block;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bc) 58%, #ffffff) 4%, var(--bc) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  will-change: transform;
+}
+
+.bouncy-char:nth-of-type(5n + 2) { --bc: var(--tint-violet); }
+.bouncy-char:nth-of-type(5n + 3) { --bc: var(--tint-sky); }
+.bouncy-char:nth-of-type(5n + 4) { --bc: var(--tint-mint); }
+.bouncy-char:nth-of-type(5n + 5) { --bc: var(--tint-peach); }
+
+/* 糖果小徽章：图标圆片的渐变底 */
+.candy-chip {
+  background: linear-gradient(135deg, var(--candy-a), var(--candy-b));
+  color: var(--accent-ink);
+  box-shadow: 0 6px 16px var(--accent-glow);
+}
+
+.float-y {
+  animation: float-y 3.2s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* 面板切换（回收站/新建/总览互切）时的果冻弹入 */
+.anim-pop-in {
+  animation: pop-in 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 主题图标切换时转体登场 */
+.anim-spin-in {
+  animation: spin-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes spin-in {
+  from { transform: rotate(-150deg) scale(0.3); opacity: 0; }
+  to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* 顶部滚动进度条：糖果渐变，scaleX 由 JS 驱动 */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 60;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--candy-a), var(--tint-violet), var(--tint-sky), var(--tint-mint));
+  pointer-events: none;
+}
+
+/* 点击爆裂粒子层 */
+.click-burst-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.burst-bit {
+  position: absolute;
+  line-height: 1;
+  font-style: normal;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-cat,
+  .taffy-ahoge,
+  .taffy-eyes,
+  .taffy-mark,
+  .gradient-text,
+  .float-y,
+  .anim-pop-in,
+  .anim-spin-in,
+  .btn-primary:hover::after {
+    animation: none;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(8px) scale(0.94); }
+}
+
+@keyframes confirm-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes confirm-dialog-in {
+  from { opacity: 0; transform: translateY(-12px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(2%, -1%, 0) scale(1.06); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes ainovel-stage-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes ainovel-progress-stripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.ainovel-stage-pulse {
+  animation: ainovel-stage-pulse 1.8s ease-in-out infinite;
+}
+
+.ainovel-progress-stripe {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.22) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.22) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+  animation: ainovel-progress-stripe 1.2s linear infinite;
+}
+
+/* 亚克力：给悬浮层（吐司、弹窗）单独补的磨砂玻璃 */
+.acrylic {
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+}
+
+/* 通用面板/Tab 状态切换过渡，避免 active 切换时生硬跳变。 */
+.transition-panel {
+  transition:
+    background-color 200ms ease-out,
+    border-color 200ms ease-out,
+    color 200ms ease-out,
+    opacity 200ms ease-out,
+    box-shadow 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent) 48%, transparent);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

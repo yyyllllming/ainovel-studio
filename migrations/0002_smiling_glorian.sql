@@ -1,0 +1,1 @@
+ALTER TABLE `author_book_cards` ADD `fingerprint_json` text DEFAULT '{}' NOT NULL;
